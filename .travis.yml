@@ -4,10 +4,10 @@ services:
     - docker
 
 before_install:
-    - docker build -t saulomontenegro/react-test - f ./client/Dockerfile.dev ./client 
+    - docker build -t saulomontenegro/react-test -f ./client/Dockerfile.dev ./client 
 
 script:
-    - docker run saulomontenegro/react-test npm test -- --coverage
+    - docker run -e CI=true saulomontenegro/react-test npm test
 
 after_sucess:
     - docker build -t saulomontenegro/multi-client ./client
