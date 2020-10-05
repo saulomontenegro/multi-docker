@@ -23,6 +23,7 @@ after_sucess:
     - docker push saulomontenegro/multi-server
 
 deploy:
+    edge: true
     provider: elasticbeanstalk
     region: us-east-1
     app: multi-docker
